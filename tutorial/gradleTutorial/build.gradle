@@ -1,0 +1,47 @@
+// Apply the java plugin to add support for Java
+apply plugin: 'base'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+   mavenCentral()
+}
+
+buildscript {
+   repositories {
+       mavenLocal()
+       jcenter()
+   }
+   dependencies {
+       classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.1")     
+   }
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+   // The production code uses the SLF4J logging API at compile time
+   compile 'org.slf4j:slf4j-api:1.7.21'
+   compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+   compile 'org.seleniumhq.selenium:selenium-java:2.53.1'
+   compile 'org.seleniumhq.selenium:selenium-server:2.53.1'
+   compile 'org.seleniumhq.selenium:selenium-firefox-driver:2.53.1'
+   compile 'org.seleniumhq.selenium:selenium-chrome-driver:2.53.1'
+   compile 'org.seleniumhq.selenium:selenium-edge-driver:2.53.1'
+   compile 'org.seleniumhq.selenium:selenium-ie-driver:2.53.1'
+   compile 'junit:junit:4.12'
+   compile 'io.cucumber:gherkin:3.2.0'
+   compile 'io.cucumber:gherkin-jvm-deps:1.0.4'
+   compile 'info.cukes:cucumber-core:1.2.2'
+   compile 'info.cukes:cucumber-java:1.2.2'
+   compile 'info.cukes:cucumber-junit:1.2.2'
+   compile 'info.cukes:cucumber-java8:1.2.2'
+   compile 'net.serenity-bdd:serenity-core:1.1.1'
+   compile 'net.serenity-bdd:serenity-junit:1.1.1'
+   compile 'net.serenity-bdd:serenity-gradle-plugin:1.1.1'
+   compile 'net.serenity-bdd:serenity-cucumber:1.1.1'
+   compile 'net.serenity-bdd:serenity-report-resources:1.1.1'
+   compile 'org.testng:testng:6.9.10'
+}
